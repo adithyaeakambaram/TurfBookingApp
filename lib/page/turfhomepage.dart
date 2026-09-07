@@ -51,13 +51,14 @@ class _TurfhomepageState extends State<Turfhomepage> {
 
     return "${date.day} ${months[date.month - 1]}";
   }
+
   final List<Map<String, dynamic>> sports = const [
     {"name": "Football", "image": "Images/Mask group.png"},
     {"name": "Cricket", "image": "Images/Mask group (1).png"},
     {"name": "Basketball", "image": "Images/Mask group (2).png"},
     {"name": "Swimming", "image": "Images/Mask group (3).png"},
   ];
-  final List<String> sportsFilter =const  [
+  final List<String> sportsFilter = const [
     "All Sports",
     "Cricket",
     "Football",
@@ -77,7 +78,10 @@ class _TurfhomepageState extends State<Turfhomepage> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text("Your Location", style: TextStyle(color: Colors.black)),
+                    Text(
+                      "Your Location",
+                      style: TextStyle(color: Colors.black),
+                    ),
                     Text("welcomeback", style: TextStyle(color: Colors.black)),
                   ],
                 ),
@@ -213,7 +217,7 @@ class _TurfhomepageState extends State<Turfhomepage> {
                                   Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                      builder: (context) =>  AllTurfPage(
+                                      builder: (context) => AllTurfPage(
                                         selectedDate: selectedDate,
                                         selectedSport: sport,
                                         sportsFilter: sportsFilter,
@@ -263,7 +267,7 @@ class _TurfhomepageState extends State<Turfhomepage> {
                     ),
                   ),
                 ),
-                const CustomCarouselSlider(venueName: 'Hotful Spr City',),
+                const CustomCarouselSlider(venueName: 'Hotful Spr City'),
                 Padding(
                   padding: const EdgeInsets.only(right: 230),
                   child: Text(
@@ -276,28 +280,11 @@ class _TurfhomepageState extends State<Turfhomepage> {
                   ),
                 ),
 
-                const CustomCarouselSlider(venueName: 'Hotful Vivra mall',),
+                const CustomCarouselSlider(venueName: 'Hotful Vivra mall'),
               ],
             ),
           ),
         ),
-      ),
-      bottomNavigationBar: BottomNavBar(
-        currentIndex: selectedBottomIndex,
-        onTap: (index) {
-          if (index == 3) {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => const FavoritesPage(),
-              ),
-            );
-          } else {
-            setState(() {
-              selectedBottomIndex = index;
-            });
-          }
-        },
       ),
     );
   }
