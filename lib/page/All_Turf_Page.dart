@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:turfbookingapp/page/Turf_Details_page.dart';
 
 import '../Widgets/carouselslider.dart';
 import '../Widgets/searchbarfield.dart';
@@ -12,18 +13,17 @@ class AllTurfPage extends StatefulWidget {
   const AllTurfPage({
     super.key,
     required this.selectedDate,
-    required this.selectedSport, required this.sportsFilter,
+    required this.selectedSport,
+    required this.sportsFilter,
   });
 
   @override
   State<AllTurfPage> createState() => _AllTurfPageState();
-
 }
 
 class _AllTurfPageState extends State<AllTurfPage> {
   late DateTime selectedDate;
   late String selectedSport;
-
 
   final List<String> venues = const [
     "Hotfut SPR City",
@@ -31,7 +31,13 @@ class _AllTurfPageState extends State<AllTurfPage> {
     "Play Champs Badminton",
     "Turfworld Vivira Mall",
   ];
+  @override
+  void initState() {
+    super.initState();
 
+    selectedDate = widget.selectedDate;
+    selectedSport = widget.selectedSport;
+  }
 
   String formatDate(DateTime date) {
     const months = [
@@ -50,8 +56,8 @@ class _AllTurfPageState extends State<AllTurfPage> {
     ];
 
     return "${date.day} ${months[date.month - 1]}";
-
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -184,7 +190,30 @@ class _AllTurfPageState extends State<AllTurfPage> {
                         ),
                       ),
 
-                       CustomCarouselSlider(venueName: venues[index],),
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => TurfDetailsPage(
+                                // ✅ Selected turf
+                                venueName: venues[index],
+
+                                // ✅ Selected date
+                                selectedDate: selectedDate,
+
+                                // ✅ Selected sport
+                                selectedSport: selectedSport,
+
+                                // ✅ Pass complete sports list
+                                sportsFilter: widget.sportsFilter,
+                              ),
+                            ),
+                          );
+                        },
+
+                        child: CustomCarouselSlider(venueName: venues[index]),
+                      ),
 
                       const SizedBox(height: 10),
                     ],

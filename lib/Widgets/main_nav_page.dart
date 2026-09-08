@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:turfbookingapp/Widgets/bottomnavbar.dart';
 import 'package:turfbookingapp/page/ProfilePage.dart';
+import 'package:turfbookingapp/page/Turf_Details_page.dart';
 
 import 'package:turfbookingapp/page/turfhomepage.dart';
 import 'package:turfbookingapp/page/All_Turf_Page.dart';
@@ -18,7 +19,18 @@ class _MainPageState extends State<MainPage> {
   int currentIndex = 0;
 
   final List<Widget> pages = [
-    Turfhomepage(), // 0 Home
+    Turfhomepage(),
+    // TurfDetailsPage(
+    //   sportsFilter: const [
+    //     "All Sports",
+    //     "Cricket",
+    //     "Football",
+    //     "Basketball",
+    //     "Swimming",
+    //   ],
+    //   selectedSport: '',
+    // ),
+    // 0 Home
     AllTurfPage(
       selectedDate: DateTime.now(),
       selectedSport: 'All Sports',
