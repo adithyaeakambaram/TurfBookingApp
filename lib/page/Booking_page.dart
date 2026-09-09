@@ -101,6 +101,52 @@ class _BookingPageState extends State<BookingPage> {
                 ],
               ),
             ),
+            const SizedBox(height: 20),
+            Text(
+              "15Sep[9pm-10pm].2 Slots",
+              style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 30.0),
+              child: Row(
+                children: [
+                  ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      foregroundColor: Colors.white,
+                      backgroundColor: Colors.red,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadiusGeometry.circular(10),
+                      ),
+                    ),
+                    onPressed: () {},
+                    child: Text("Get Directions"),
+                  ),
+                  const SizedBox(width: 10),
+                  IconButton.filled(
+                    style: IconButton.styleFrom(
+                      backgroundColor: Colors.green,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                    ),
+                    onPressed: () {},
+                    icon: Icon(Icons.call),
+                  ),
+                  const SizedBox(width: 10),
+                  ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      foregroundColor: Colors.white,
+                      backgroundColor: Colors.green,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadiusGeometry.circular(10),
+                      ),
+                    ),
+                    onPressed: () {},
+                    child: Text("Download Ticket"),
+                  ),
+                ],
+              ),
+            ),
           ],
         ),
       ),
