@@ -31,17 +31,19 @@ class _MainPageState extends State<MainPage> {
     //   selectedSport: '',
     // ),
     // 0 Home
-    AllTurfPage(
-      selectedDate: DateTime.now(),
-      selectedSport: 'All Sports',
-      sportsFilter: const [
-        "All Sports",
-        "Cricket",
-        "Football",
-        "Basketball",
-        "Swimming",
-      ],
-    ), // 1 Turf
+    AllTurfPage(),
+
+    // AllTurfPage(
+    //   selectedDate: DateTime.now(),
+    //   selectedSport: 'All Sports',
+    //   sportsFilter: const [
+    //     "All Sports",
+    //     "Cricket",
+    //     "Football",
+    //     "Basketball",
+    //     "Swimming",
+    //   ],
+    // ), // 1 Turf
     BookingPage(), // 2 Booking
     FavoritesPage(), // 3 Favorites
     Profilepage(), // 4 Profile
