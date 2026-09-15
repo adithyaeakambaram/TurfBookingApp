@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:turfbookingapp/Widgets/bottomnavbar.dart';
 import 'package:turfbookingapp/page/ProfilePage.dart';
 import 'package:turfbookingapp/page/Turf_Details_page.dart';
+import 'package:turfbookingapp/page/select_slot_page.dart';
 
 import 'package:turfbookingapp/page/turfhomepage.dart';
 import 'package:turfbookingapp/page/All_Turf_Page.dart';
@@ -46,7 +47,7 @@ class _MainPageState extends State<MainPage> {
     // ), // 1 Turf
     BookingPage(), // 2 Booking
     FavoritesPage(), // 3 Favorites
-    Profilepage(), // 4 Profile
+    SelectSlotPage(), // 4 Profile
   ];
 
   @override

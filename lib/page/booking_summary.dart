@@ -1,3 +1,403 @@
+// import 'package:flutter/material.dart';
+//
+// class BookingSummary extends StatefulWidget {
+//   const BookingSummary({super.key});
+//
+//   @override
+//   State<BookingSummary> createState() => _BookingSummaryState();
+// }
+//
+// class _BookingSummaryState extends State<BookingSummary> {
+//   String selectedPlaying = "5 v 5";
+//
+//   String selected = "2";
+//
+//   List<String> playingFormats = [
+//     "4 v 4",
+//     "5 v 5",
+//     "6 v 6",
+//     "7 v 7",
+//     "8 v 8",
+//     "9 v 9",
+//   ];
+//   List<String> players = [
+//     "2",
+//     "3",
+//     "4",
+//     "5",
+//     "6",
+//     "7",
+//     "8",
+//     "9"
+//         "10",
+//   ];
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       appBar: AppBar(
+//         leading: Icon(Icons.arrow_back),
+//         title: Text("SKY LAND TURD ,Aynavaram "),
+//       ),
+//       body: Column(
+//         children: [
+//           Row(
+//             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+//             children: [
+//               Text(
+//                 "Sep 15",
+//                 style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+//               ),
+//               Text(
+//                 "09:00 -10:00pm",
+//                 style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+//               ),
+//             ],
+//           ),
+//           Row(
+//             children: [
+//               _gameSelector("Box Cricket"),
+//
+//               const SizedBox(width: 8),
+//
+//               _gameSelector("5 v 5 Pitches"),
+//             ],
+//           ),
+//           const SizedBox(height: 20),
+//           Divider(height: 1.5),
+//           Text(
+//             "Bill Details",
+//             style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+//           ),
+//           Row(
+//             mainAxisAlignment: MainAxisAlignment.spaceBetween,
+//             children: [
+//               Text("Slot cost", style: TextStyle(color: Colors.black)),
+//               Text("1200", style: TextStyle(color: Colors.black)),
+//             ],
+//           ),
+//           Row(
+//             mainAxisAlignment: MainAxisAlignment.spaceBetween,
+//             children: [
+//               Text("Venue offer", style: TextStyle(color: Colors.black)),
+//               Text("-200", style: TextStyle(color: Colors.black)),
+//             ],
+//           ),
+//           Row(
+//             mainAxisAlignment: MainAxisAlignment.spaceBetween,
+//             children: [
+//               Text("Servie fee", style: TextStyle(color: Colors.black)),
+//               Text("20", style: TextStyle(color: Colors.black)),
+//             ],
+//           ),
+//           Row(
+//             mainAxisAlignment: MainAxisAlignment.spaceBetween,
+//             children: [
+//               Text("Totall", style: TextStyle(color: Colors.black)),
+//               Text("1020", style: TextStyle(color: Colors.black)),
+//             ],
+//           ),
+//           const SizedBox(height: 20),
+//           Divider(height: 1.5),
+//           Text(
+//             "Payment options",
+//             style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+//           ),
+//           Row(
+//             mainAxisAlignment: .spaceBetween,
+//             children: [
+//               Container(
+//                 width: 200,
+//                 height: 100,
+//                 decoration: BoxDecoration(
+//                   color: Colors.white,
+//                   border: Border.all(color: Colors.black),
+//                 ),
+//                 child: Column(
+//                   children: [
+//                     Text("Advance", style: TextStyle(color: Colors.black)),
+//                     SizedBox(height: 30),
+//                     Text("Rs,200", style: TextStyle(color: Colors.black)),
+//                   ],
+//                 ),
+//               ),
+//               Container(
+//                 width: 200,
+//                 height: 100,
+//                 decoration: BoxDecoration(
+//                   color: Colors.white,
+//                   border: Border.all(color: Colors.black),
+//                 ),
+//                 child: Column(
+//                   children: [
+//                     Text("Advance", style: TextStyle(color: Colors.black)),
+//                     SizedBox(height: 30),
+//                     Text("Rs,1020", style: TextStyle(color: Colors.black)),
+//                   ],
+//                 ),
+//               ),
+//             ],
+//           ),
+//           SizedBox(height: 20),
+//           Divider(height: 1.5),
+//           Text(
+//             "what will you be playing?",
+//             style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+//           ),
+//           const Text(
+//             "What will you be playing?",
+//             style: TextStyle(
+//               color: Colors.black,
+//               fontSize: 16,
+//               fontWeight: FontWeight.bold,
+//             ),
+//           ),
+//
+//           const SizedBox(height: 10),
+//
+//           SizedBox(
+//             height: 40,
+//             child: ListView.builder(
+//               scrollDirection: Axis.horizontal,
+//               itemCount: playingFormats.length,
+//               itemBuilder: (context, index) {
+//                 final format = playingFormats[index];
+//
+//                 return Padding(
+//                   padding: const EdgeInsets.only(right: 8),
+//                   child: _playingSelector(format),
+//                 );
+//               },
+//             ),
+//           ),
+//           const SizedBox(height: 10),
+//           const Text(
+//             "How Many Players",
+//             style: TextStyle(
+//               color: Colors.black,
+//               fontSize: 16,
+//               fontWeight: FontWeight.bold,
+//             ),
+//           ),
+//           const SizedBox(height: 30),
+//           SizedBox(
+//             height: 40,
+//             child: ListView.builder(
+//               scrollDirection: Axis.horizontal,
+//               itemCount: players.length,
+//               itemBuilder: (context, index) {
+//                 final format = players[index];
+//
+//                 return Padding(
+//                   padding: const EdgeInsets.only(right: 8),
+//                   child: _playingplayerSelector(format),
+//                 );
+//               },
+//             ),
+//           ),
+//           const SizedBox(height: 10),
+//           Divider(height: 1.4),
+//           Expanded(
+//             child: Container(
+//               width: double.infinity,
+//               padding: const EdgeInsets.fromLTRB(18, 12, 18, 10),
+//               color: Colors.white,
+//               child: Column(
+//                 crossAxisAlignment: CrossAxisAlignment.start,
+//                 children: [
+//                   const Text(
+//                     "Cancellation Policy",
+//                     style: TextStyle(
+//                       fontSize: 17,
+//                       fontWeight: FontWeight.bold,
+//                       color: Colors.black,
+//                     ),
+//                   ),
+//
+//                   const SizedBox(height: 14),
+//
+//                   RichText(
+//                     text: const TextSpan(
+//                       style: TextStyle(fontSize: 13, color: Colors.black),
+//                       children: [
+//                         TextSpan(text: "Cancel before "),
+//                         TextSpan(
+//                           text: "15th Sep, 4:00 pm",
+//                           style: TextStyle(
+//                             color: Colors.green,
+//                             fontWeight: FontWeight.w600,
+//                           ),
+//                         ),
+//                         TextSpan(
+//                           text:
+//                               " to avail a refund.\n"
+//                               "Service fee is non-refundable.",
+//                         ),
+//                       ],
+//                     ),
+//                   ),
+//
+//                   const SizedBox(height: 14),
+//
+//                   const Text(
+//                     "If you cancel after the above time, you will lose the\n"
+//                     "entire amount paid,",
+//                     style: TextStyle(
+//                       fontSize: 13,
+//                       color: Colors.black,
+//                       height: 1.3,
+//                     ),
+//                   ),
+//                 ],
+//               ),
+//             ),
+//           ),
+//
+//           // ===============================
+//           // BOTTOM PAYMENT BAR
+//           // ===============================
+//           Container(
+//             height: 48,
+//             decoration: const BoxDecoration(color: Color(0xFF00C878)),
+//             child: Row(
+//               children: [
+//                 // Amount
+//                 Expanded(
+//                   child: Padding(
+//                     padding: const EdgeInsets.only(left: 20),
+//                     child: Column(
+//                       mainAxisAlignment: MainAxisAlignment.center,
+//                       crossAxisAlignment: CrossAxisAlignment.start,
+//                       children: const [
+//                         Text(
+//                           "Full Amount",
+//                           style: TextStyle(color: Colors.white, fontSize: 9),
+//                         ),
+//                         Text(
+//                           "₹1,020",
+//                           style: TextStyle(
+//                             color: Colors.white,
+//                             fontSize: 23,
+//                             height: 0.9,
+//                             fontWeight: FontWeight.bold,
+//                           ),
+//                         ),
+//                       ],
+//                     ),
+//                   ),
+//                 ),
+//
+//                 // Proceed
+//                 const Text(
+//                   "PROCEED TO PAY",
+//                   style: TextStyle(
+//                     color: Colors.white,
+//                     fontSize: 13,
+//                     fontWeight: FontWeight.bold,
+//                   ),
+//                 ),
+//
+//                 const SizedBox(width: 8),
+//
+//                 const Padding(
+//                   padding: EdgeInsets.only(right: 18),
+//                   child: Icon(
+//                     Icons.arrow_forward,
+//                     color: Colors.white,
+//                     size: 28,
+//                   ),
+//                 ),
+//               ],
+//             ),
+//           ),
+//         ],
+//       ),
+//     );
+//   }
+//
+//   Widget _playingSelector(String title) {
+//     final isSelected = selectedPlaying == title;
+//
+//     return GestureDetector(
+//       onTap: () {
+//         setState(() {
+//           selectedPlaying = title;
+//         });
+//       },
+//
+//       child: Container(
+//         padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+//
+//         decoration: BoxDecoration(
+//           color: isSelected ? Colors.green : Colors.transparent,
+//
+//           borderRadius: BorderRadius.circular(20),
+//         ),
+//
+//         child: Text(
+//           title,
+//           style: TextStyle(
+//             color: isSelected ? Colors.white : Colors.black,
+//
+//             fontSize: 17,
+//             fontWeight: FontWeight.w600,
+//           ),
+//         ),
+//       ),
+//     );
+//   }
+//
+//   Widget _playingplayerSelector(String title) {
+//     final isSelected = selected == title;
+//
+//     return GestureDetector(
+//       onTap: () {
+//         setState(() {
+//           selected = title;
+//         });
+//       },
+//
+//       child: Container(
+//         padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+//
+//         decoration: BoxDecoration(
+//           color: isSelected ? Colors.green : Colors.transparent,
+//
+//           borderRadius: BorderRadius.circular(20),
+//         ),
+//
+//         child: Text(
+//           title,
+//           style: TextStyle(
+//             color: isSelected ? Colors.white : Colors.black,
+//
+//             fontSize: 17,
+//             fontWeight: FontWeight.w600,
+//           ),
+//         ),
+//       ),
+//     );
+//   }
+//
+//   Widget _gameSelector(String title) {
+//     return Container(
+//       padding: const EdgeInsets.symmetric(horizontal: 26, vertical: 15),
+//       decoration: BoxDecoration(
+//         color: Colors.green,
+//         borderRadius: BorderRadius.circular(20),
+//       ),
+//       child: Text(
+//         title,
+//         style: const TextStyle(
+//           color: Colors.white,
+//           fontSize: 11,
+//           fontWeight: FontWeight.bold,
+//         ),
+//       ),
+//     );
+//   }
+// }
+
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class BookingSummary extends StatefulWidget {
@@ -8,11 +408,12 @@ class BookingSummary extends StatefulWidget {
 }
 
 class _BookingSummaryState extends State<BookingSummary> {
-  String selectedPlaying = "5 v 5";
-
-  String selected = "2";
-
-  List<String> playingFormats = [
+  final List<String> formats = ["Box Cricket", "5 v 5 Pitches"];
+  final List<Map<String, String>> paymentOptions = [
+    {"title": "Advance", "amount": "₹220"},
+    {"title": "Full Amount", "amount": "₹1,020"},
+  ];
+  final List<String> playingFormats = [
     "4 v 4",
     "5 v 5",
     "6 v 6",
@@ -20,379 +421,190 @@ class _BookingSummaryState extends State<BookingSummary> {
     "8 v 8",
     "9 v 9",
   ];
-  List<String> players = [
-    "2",
-    "3",
-    "4",
-    "5",
-    "6",
-    "7",
-    "8",
-    "9"
-        "10",
-  ];
+  final List<String> players = ["8", "9", "10", "10", "11", "12", "13", "14"];
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        leading: Icon(Icons.arrow_back),
-        title: Text("SKY LAND TURD ,Aynavaram "),
-      ),
-      body: Column(
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              Text(
-                "Sep 15",
-                style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        SizedBox(height: 50),
+        Row(
+          children: [
+            Icon(Icons.arrow_back, size: 30),
+            Text(
+              "Sky Land Turf,ayanavaram",
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            ),
+          ],
+        ),
+        SizedBox(height: 20),
+        Row(
+          children: [
+            Text(
+              "Sep 15",
+              style: TextStyle(
+                color: Colors.black,
+                fontWeight: FontWeight.bold,
+                fontSize: 30,
               ),
-              Text(
-                "09:00 -10:00pm",
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            ),
+            SizedBox(width: 20),
+            Text(
+              "09:00pm -10:00pm",
+              style: TextStyle(
+                color: Colors.black,
+                fontWeight: FontWeight.bold,
+                fontSize: 15,
               ),
-            ],
+            ),
+          ],
+        ),
+        SizedBox(height: 20),
+        SizedBox(
+          height: 40,
+          child: ListView.builder(
+            itemCount: formats.length,
+            scrollDirection: Axis.horizontal,
+            itemBuilder: (context, index) {
+              final format = formats[index];
+              return Container(
+                height: 40,
+                width: 90,
+                margin: const EdgeInsets.only(right: 10),
+                decoration: BoxDecoration(
+                  color: Colors.green,
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: Center(child: Text(format)),
+              );
+            },
           ),
-          Row(
-            children: [
-              _gameSelector("Box Cricket"),
+        ),
+        SizedBox(height: 20),
+        Divider(height: 1.3),
+        SizedBox(height: 20),
+        Text(
+          "Payment Options",
+          style: TextStyle(
+            color: Colors.black,
+            fontWeight: FontWeight.bold,
+            fontSize: 15,
+          ),
+        ),
 
-              const SizedBox(width: 8),
-
-              _gameSelector("5 v 5 Pitches"),
-            ],
-          ),
-          const SizedBox(height: 20),
-          Divider(height: 1.5),
-          Text(
-            "Bill Details",
-            style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text("Slot cost", style: TextStyle(color: Colors.black)),
-              Text("1200", style: TextStyle(color: Colors.black)),
-            ],
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text("Venue offer", style: TextStyle(color: Colors.black)),
-              Text("-200", style: TextStyle(color: Colors.black)),
-            ],
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text("Servie fee", style: TextStyle(color: Colors.black)),
-              Text("20", style: TextStyle(color: Colors.black)),
-            ],
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text("Totall", style: TextStyle(color: Colors.black)),
-              Text("1020", style: TextStyle(color: Colors.black)),
-            ],
-          ),
-          const SizedBox(height: 20),
-          Divider(height: 1.5),
-          Text(
-            "Payment options",
-            style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
-          ),
-          Row(
-            mainAxisAlignment: .spaceBetween,
-            children: [
-              Container(
-                width: 200,
-                height: 100,
+        SizedBox(
+          height: 120,
+          child: ListView.builder(
+            scrollDirection: Axis.horizontal,
+            itemCount: paymentOptions.length,
+            itemBuilder: (context, index) {
+              final paymentoption = paymentOptions[index];
+              return Container(
+                width: 190,
+                margin: EdgeInsets.only(right: 20),
                 decoration: BoxDecoration(
                   color: Colors.white,
-                  border: Border.all(color: Colors.black),
+                  borderRadius: BorderRadius.circular(10),
+                  border: Border.all(width: 2),
                 ),
                 child: Column(
                   children: [
-                    Text("Advance", style: TextStyle(color: Colors.black)),
-                    SizedBox(height: 30),
-                    Text("Rs,200", style: TextStyle(color: Colors.black)),
+                    Text(
+                      paymentoption["title"]!,
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    SizedBox(height: 50),
+                    Text(
+                      paymentoption["amount"]!,
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
                   ],
                 ),
-              ),
-              Container(
-                width: 200,
-                height: 100,
+              );
+            },
+          ),
+        ),
+        SizedBox(height: 20),
+        Text(
+          "what you will Be Playig",
+          style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+        ),
+        SizedBox(height: 20),
+        SizedBox(
+          height: 60,
+          child: ListView.builder(
+            itemCount: playingFormats.length,
+            scrollDirection: Axis.horizontal,
+            itemBuilder: (context, index) {
+              final playingformat = playingFormats[index];
+              return Container(
+                width: 60,
+                margin: EdgeInsets.only(right: 20),
                 decoration: BoxDecoration(
                   color: Colors.white,
-                  border: Border.all(color: Colors.black),
+                  borderRadius: BorderRadius.circular(10),
                 ),
-                child: Column(
-                  children: [
-                    Text("Advance", style: TextStyle(color: Colors.black)),
-                    SizedBox(height: 30),
-                    Text("Rs,1020", style: TextStyle(color: Colors.black)),
-                  ],
+                child: Text(
+                  playingformat,
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
                 ),
-              ),
+              );
+            },
+          ),
+        ),
+        Text(
+          "How MANY players",
+          style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+        ),
+        SizedBox(height: 20),
+        SizedBox(
+          height: 60,
+          child: ListView.builder(
+            itemCount: playingFormats.length,
+            scrollDirection: Axis.horizontal,
+            itemBuilder: (context, index) {
+              final player = players[index];
+              return Container(
+                width: 60,
+                margin: EdgeInsets.only(right: 20),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: Text(
+                  player,
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
+                ),
+              );
+            },
+          ),
+        ),
+        SizedBox(height: 20),
+        Text(
+          "Cancellation Policy",
+          style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+        ),
+        Text.rich(
+          TextSpan(
+            children: [
+              TextSpan(text: "Cancel before "),
+              TextSpan(text: "15th Sep, 4:00 pm"),
+              TextSpan(text: "to avail a refund."),
             ],
           ),
-          SizedBox(height: 20),
-          Divider(height: 1.5),
-          Text(
-            "what will you be playing?",
-            style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
-          ),
-          const Text(
-            "What will you be playing?",
-            style: TextStyle(
-              color: Colors.black,
-              fontSize: 16,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-
-          const SizedBox(height: 10),
-
-          SizedBox(
-            height: 40,
-            child: ListView.builder(
-              scrollDirection: Axis.horizontal,
-              itemCount: playingFormats.length,
-              itemBuilder: (context, index) {
-                final format = playingFormats[index];
-
-                return Padding(
-                  padding: const EdgeInsets.only(right: 8),
-                  child: _playingSelector(format),
-                );
-              },
-            ),
-          ),
-          const SizedBox(height: 10),
-          const Text(
-            "How Many Players",
-            style: TextStyle(
-              color: Colors.black,
-              fontSize: 16,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-          const SizedBox(height: 30),
-          SizedBox(
-            height: 40,
-            child: ListView.builder(
-              scrollDirection: Axis.horizontal,
-              itemCount: players.length,
-              itemBuilder: (context, index) {
-                final format = players[index];
-
-                return Padding(
-                  padding: const EdgeInsets.only(right: 8),
-                  child: _playingplayerSelector(format),
-                );
-              },
-            ),
-          ),
-          const SizedBox(height: 10),
-          Divider(height: 1.4),
-          Expanded(
-            child: Container(
-              width: double.infinity,
-              padding: const EdgeInsets.fromLTRB(18, 12, 18, 10),
-              color: Colors.white,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const Text(
-                    "Cancellation Policy",
-                    style: TextStyle(
-                      fontSize: 17,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black,
-                    ),
-                  ),
-
-                  const SizedBox(height: 14),
-
-                  RichText(
-                    text: const TextSpan(
-                      style: TextStyle(fontSize: 13, color: Colors.black),
-                      children: [
-                        TextSpan(text: "Cancel before "),
-                        TextSpan(
-                          text: "15th Sep, 4:00 pm",
-                          style: TextStyle(
-                            color: Colors.green,
-                            fontWeight: FontWeight.w600,
-                          ),
-                        ),
-                        TextSpan(
-                          text:
-                              " to avail a refund.\n"
-                              "Service fee is non-refundable.",
-                        ),
-                      ],
-                    ),
-                  ),
-
-                  const SizedBox(height: 14),
-
-                  const Text(
-                    "If you cancel after the above time, you will lose the\n"
-                    "entire amount paid,",
-                    style: TextStyle(
-                      fontSize: 13,
-                      color: Colors.black,
-                      height: 1.3,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ),
-
-          // ===============================
-          // BOTTOM PAYMENT BAR
-          // ===============================
-          Container(
-            height: 48,
-            decoration: const BoxDecoration(color: Color(0xFF00C878)),
-            child: Row(
-              children: [
-                // Amount
-                Expanded(
-                  child: Padding(
-                    padding: const EdgeInsets.only(left: 20),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: const [
-                        Text(
-                          "Full Amount",
-                          style: TextStyle(color: Colors.white, fontSize: 9),
-                        ),
-                        Text(
-                          "₹1,020",
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 23,
-                            height: 0.9,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-
-                // Proceed
-                const Text(
-                  "PROCEED TO PAY",
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 13,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-
-                const SizedBox(width: 8),
-
-                const Padding(
-                  padding: EdgeInsets.only(right: 18),
-                  child: Icon(
-                    Icons.arrow_forward,
-                    color: Colors.white,
-                    size: 28,
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-
-  Widget _playingSelector(String title) {
-    final isSelected = selectedPlaying == title;
-
-    return GestureDetector(
-      onTap: () {
-        setState(() {
-          selectedPlaying = title;
-        });
-      },
-
-      child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
-
-        decoration: BoxDecoration(
-          color: isSelected ? Colors.green : Colors.transparent,
-
-          borderRadius: BorderRadius.circular(20),
         ),
+        SizedBox(height: 5),
 
-        child: Text(
-          title,
-          style: TextStyle(
-            color: isSelected ? Colors.white : Colors.black,
+        Text("If you cancel after the above time, you will lose the"),
 
-            fontSize: 17,
-            fontWeight: FontWeight.w600,
-          ),
-        ),
-      ),
-    );
-  }
-
-  Widget _playingplayerSelector(String title) {
-    final isSelected = selected == title;
-
-    return GestureDetector(
-      onTap: () {
-        setState(() {
-          selected = title;
-        });
-      },
-
-      child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
-
-        decoration: BoxDecoration(
-          color: isSelected ? Colors.green : Colors.transparent,
-
-          borderRadius: BorderRadius.circular(20),
-        ),
-
-        child: Text(
-          title,
-          style: TextStyle(
-            color: isSelected ? Colors.white : Colors.black,
-
-            fontSize: 17,
-            fontWeight: FontWeight.w600,
-          ),
-        ),
-      ),
-    );
-  }
-
-  Widget _gameSelector(String title) {
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 26, vertical: 15),
-      decoration: BoxDecoration(
-        color: Colors.green,
-        borderRadius: BorderRadius.circular(20),
-      ),
-      child: Text(
-        title,
-        style: const TextStyle(
-          color: Colors.white,
-          fontSize: 11,
-          fontWeight: FontWeight.bold,
-        ),
-      ),
+        Text("entire amount paid."),
+      ],
     );
   }
 }
